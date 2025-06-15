@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Hansen </title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 10%;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e01414;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #e01414;
+        }
+
+        .about-section {
+            padding: 60px 10%;
+        }
+
+        .about-section h1 {
+            font-size: 42px;
+            color: #e01414;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-item,
+        .skill,
+        ul li {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        /* Delay animasi bertahap */
+        .timeline-item:nth-child(1),
+        .skill:nth-child(1),
+        ul li:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2),
+        .skill:nth-child(2),
+        ul li:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3),
+        .skill:nth-child(3),
+        ul li:nth-child(3) { animation-delay: 0.6s; }
+        ul li:nth-child(4) { animation-delay: 0.8s; }
+        ul li:nth-child(5) { animation-delay: 1s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #e01414;
+            border-bottom: 2px solid #e01414;
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #444;
+        }
+
+        ul li i {
+            color: #e01414;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        ul li:hover i {
+            transform: scale(1.2);
+        }
+
+        footer {
+            background: #e01414;
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: #fff;
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+        }
+
+        .timeline {
+            position: relative;
+            margin-left: 28px;
+            padding-left: 28px;
+            border-left: 2px solid #e01414;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background-color: #e01414;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(224, 20, 20, 0.2);
+            z-index: 1;
+        }
+
+        .timeline-item h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: black;
+        }
+
+        .timeline-item .year {
+            font-size: 14px;
+            font-weight: 500;
+            color: #e01414;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .skill {
+            margin-bottom: 20px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .skill-header h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .skill-header span {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .bar {
+            background-color: #333;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 8px;
+            margin-top: 8px;
+        }
+
+        .fill {
+            background: linear-gradient(to right, #e01414, red);
+            height: 100%;
+            border-radius: 8px;
+            transition: width 1s ease;
+        }
+
+        .flag-icon {
+            width: 24px;
+            height: 16px;
+            border-radius: 2px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 10px 10px 0 0;
+            }
+
+            .about-section {
+                padding: 40px 5%;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">HansPorto</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="about-section">
+        <h1>About Me</h1>
+
+        <div class="card">
+            <p>Hello! My name is <strong>Hansen Lucky Gunawan</strong>, 16 years old, born in Bogor on October 31, 2008.
+                I live in Cipaku, Bogor with my family. I’m currently a student at SMK Wikrama Bogor majoring in
+                Software Development and GIM. I enjoy listening to music, singing, and learning about technology,
+                especially in coding and UI/UX design.</p>
+            <p>My dream is to become a skilled <strong>Front End Developer</strong> and <strong>UI/UX Designer</strong>.
+            </p>
+        </div>
+
+        <div class="card education-card">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Mardi Waluya Elementary School</h3>
+                    <div class="year">2014 — 2020</div>
+                    <p>Learn academic basics and build a foundation for formal education.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Mardi Waluya Junior High School</h3>
+                    <div class="year">2020 — 2023</div>
+                    <p>Develop strong independent learning and thinking skills.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Wikrama Vocational School Bogor</h3>
+                    <div class="year">2023 — 2026</div>
+                    <p>Focus on Software Development and GIM majors.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Training & Competence</h2>
+            <ul>
+                <li><i class="fa-solid fa-code"></i> Dicoding: Learn Basic Web Programming</li>
+                <li><i class="fa-brands fa-unity"></i> Unity: Unity Essentials Pathway</li>
+                <li><i class="fa-solid fa-user-graduate"></i> Telkom Digiup 2024: UI/UX Designer Training</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>My Skills</h2>
+            <div class="skill"><div class="skill-header"><h3 style="color: #e01414;">Ability:</h3></div></div>
+
+            <div class="skill"><div class="skill-header"><h3>HTML</h3><span>100%</span></div><div class="bar"><div class="fill" style="width: 100%;"></div></div></div>
+            <div class="skill"><div class="skill-header"><h3>CSS (Tailwaind, Bootstrap)</h3><span>80%</span></div><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
+            <div class="skill"><div class="skill-header"><h3>JavaScript</h3><span>80%</span></div><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
+            <div class="skill"><div class="skill-header"><h3>PHP(Laravel)</h3><span>80%</span></div><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
+            <div class="skill"><div class="skill-header"><h3>C#</h3><span>80%</span></div><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
+            <div class="skill"><div class="skill-header"><h3>ReactJs</h3><span>85%</span></div><div class="bar"><div class="fill" style="width: 85%;"></div></div></div>
+            <div class="skill"><div class="skill-header"><h3>Flutter</h3><span>80%</span></div><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
+
+            <div class="skill"><div class="skill-header"><h3 style="color: #e01414;">Teamwork applications:</h3></div></div>
+            <div class="skill"><div class="skill-header"><h3>Github</h3><span>90%</span></div><div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
+            <div class="skill"><div class="skill-header"><h3>Notion</h3><span>100%</span></div><div class="bar"><div class="fill" style="width: 100%;"></div></div></div>
+            <div class="skill"><div class="skill-header"><h3>Trello</h3><span>90%</span></div><div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
+
+            <div class="skill"><div class="skill-header"><h3 style="color: #e01414;">Designing UI/UX for a Web/Application:</h3></div></div>
+            <div class="skill"><div class="skill-header"><h3>Figma</h3><span>80%</span></div><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
+        </div>
+
+        <div class="card">
+            <h2>Tools</h2>
+            <ul>
+                <li><i class="fa-solid fa-code"></i> Visual Studio Code</li>
+                <li><i class="fa-solid fa-book"></i> Notion</li>
+                <li><i class="fa-brands fa-github"></i> GitHub</li>
+                <li><i class="fa-brands fa-figma"></i> Figma</li>
+                <li><i class="fa-solid fa-list-check"></i> Trello</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Languages</h2>
+            <ul>
+                <li><img src="img/id.jpeg" alt="Indonesia Flag" class="flag-icon"> Indonesian</li>
+                <li><img src="img/uk.jpg" alt="UK Flag" class="flag-icon"> English</li>
+                <li><img src="img/my.jpeg" alt="Malaysia Flag" class="flag-icon"> Malay</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Hansen Lucky Gunawan. All rights reserved.
+    </footer>
+</body>
+
+</html>
